@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSignup } from "../../hooks/useSignup"
 
 // styles
 import "./Signup.css";
@@ -7,10 +8,11 @@ export default function Signup() {
   let [email, setEmail] = useState("")
   let [password, setPassword] = useState("")
   let [displayName, setDisplayName] = useState("")
+  let {signup, isPending, error} = useSignup()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(email, password, displayName)
+    signup(email, password, displayName)
   }
 
   return (

@@ -14,7 +14,7 @@ const firebaseApp = initializeApp({
 const db = getFirestore()
 const auth = getAuth()
 
-console.log(Object.getOwnPropertyNames(auth))
-console.log(auth.app)
+// console.log(Object.getOwnPropertyNames(auth))
+// console.log(auth.app)
 
 export { db, auth }
