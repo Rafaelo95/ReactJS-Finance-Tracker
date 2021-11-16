@@ -1,0 +1,40 @@
+.signup-form {
+    max-width: 360px;
+    text-align: center;
+    margin: 60px auto;
+}
+
+.signup-form label,
+.signup-form button {
+    display: block;
+    margin: 15px auto;
+}
+
+.signup-form-title {
+    font-size: 2em;
+    margin-bottom: 60px;
+}
+
+.signup-form button {
+    background-color: rgb(133, 160, 90);
+    margin-top: 40px;
+    font-size: 1.3em;
+    width: 50%;
+    height: 40px;
+    border: 2px solid rgb(133, 160, 90);
+    border-radius: 6px;
+    color: white;
+}
+
+.signup-form button:hover {
+    background-color: white;
+    color: rgb(133, 160, 90);
+    cursor: pointer;
+}
+
+.signup-form input {
+    box-sizing: border-box;
+    padding: 8px 12px;
+    width: 100%;
+    font-size: 1.2em;
+}
