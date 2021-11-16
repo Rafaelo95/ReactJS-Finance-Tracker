@@ -1,5 +1,5 @@
 .login-form {
-    max-width: 400px;
+    max-width: 360px;
     text-align: center;
     margin: 60px auto;
 }
@@ -13,13 +13,14 @@
 .login-form-title {
     font-size: 2em;
     color: rgb(75, 75, 75);
+    margin-bottom: 60px;
 }
 
 .login-form button {
     background-color: rgb(133, 160, 90);
     margin-top: 40px;
     font-size: 1.3em;
-    width: 140px;
+    width: 50%;
     height: 40px;
     border: 2px solid rgb(133, 160, 90);
     border-radius: 6px;
@@ -33,7 +34,8 @@
 }
 
 .login-form input {
-    padding: 10px;
+    box-sizing: border-box;
+    padding: 8px 12px;
     width: 100%;
     font-size: 1.2em;
 }
