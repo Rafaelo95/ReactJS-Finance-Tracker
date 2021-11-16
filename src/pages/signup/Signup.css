@@ -23,11 +23,11 @@
     height: 40px;
     border: 2px solid rgb(133, 160, 90);
     border-radius: 6px;
-    color: white;
+    color: rgb(240, 240, 240);
 }
 
 .signup-form button:hover {
-    background-color: white;
+    background-color: rgb(240, 240, 240);
     color: rgb(133, 160, 90);
     cursor: pointer;
 }
