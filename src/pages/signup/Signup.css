@@ -38,3 +38,9 @@
     width: 100%;
     font-size: 1.2em;
 }
+
+.signup-form button:disabled {
+    background-color: rgb(156, 156, 156);
+    border: 2px solid rgb(156, 156, 156);
+    color: white;
+}

@@ -35,8 +35,9 @@ export default function Signup() {
         type="text" 
         onChange={(e) => setDisplayName(e.target.value)}
       />
-
-      <button>Register</button>
+      {!isPending && <button>Register</button>}
+      {isPending && <button disabled>Loading...</button>}
+      {error && <p>{error}</p>}
     </form>
   );
 }

@@ -3,10 +3,11 @@ import { auth } from "../firebase/config"
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 
 export const useSignup = () => {
-    let [error, setError] = useState('')
+    let [error, setError] = useState(false)
     let [isPending, setIsPending] = useState(false)
 
     const signup = async (email, password, displayName) => {
+        setError(false)
         setIsPending(true)
 
         try {
@@ -25,8 +26,8 @@ export const useSignup = () => {
 
             setIsPending(false)
         } catch (err) {
-            console.log(err.message)
-            setError(err)
+            console.log(err)
+            setError(err.message)
             setIsPending(false)
         }
     }
