@@ -1,17 +1,43 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
+import { AuthContext } from "../contexts/AuthContext";
+import { useContext } from "react";
 
 // styles
-import "./Navbar.css"
+import "./Navbar.css";
 
 export default function Navbar() {
-    return (
-        <nav className="navbar">
-            <ul className="navbar-ul">
-                <li className="nav-title"><Link to="/">Finance Tracker</Link></li>
+  const { logout } = useLogout();
+  const { user } = useContext(AuthContext);
 
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/signup">Sign Up</Link></li>
-            </ul>
-        </nav>
-    )
+  return (
+    <nav className="navbar">
+      <ul className="navbar-ul">
+        <li className="nav-title">
+          <Link to="/">Finance Tracker</Link>
+        </li>
+
+        {!user && (
+          <>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/signup">Sign Up</Link>
+            </li>
+          </>
+        )}
+
+        {user && (
+          <>
+            <li>
+              <button className="logout-btn" onClick={logout}>
+                Logout
+              </button>
+            </li>
+          </>
+        )}
+      </ul>
+    </nav>
+  );
 }

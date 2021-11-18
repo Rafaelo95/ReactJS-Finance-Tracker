@@ -29,7 +29,7 @@ export const useSignup = () => {
       // refer to https://firebase.google.com/docs/auth/web/manage-users#web-version-9_4 for reference on updateProfile
       await updateProfile(response.user, { displayName: displayName });
 
-      dispatch({type: "login", payload: response.user})
+      dispatch({ type: "login", payload: response.user });
 
       setIsPending(false);
     } catch (err) {

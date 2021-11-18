@@ -23,11 +23,10 @@
 .navbar a {
     text-decoration: none;
     color: white;
-    padding-bottom: 6px;
 }
 
-.navbar li:nth-child(2) {
-    margin-right: 30px;
+.navbar li {
+    margin-left: 30px;
 }
 
 .navbar a::after {
@@ -43,4 +42,20 @@
 .navbar a:hover::after {
     width: 100%;
 }
-    
+
+.logout-btn {
+    background-color: rgb(133, 160, 90);
+    font-size: 1.3em;
+    height: 35px;
+    width: 115%;
+    border: 2px solid rgb(133, 160, 90);
+    border-radius: 6px;
+    margin: 0;
+    color: rgb(240, 240, 240);
+}
+
+.logout-btn:hover {
+    background-color: rgb(240, 240, 240);
+    color: rgb(133, 160, 90);
+    cursor: pointer;
+}
