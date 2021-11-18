@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
 import { getAuth } from "firebase/auth"
 
-const firebaseApp = initializeApp({
+initializeApp({
     apiKey: "AIzaSyDJHLekhVRQpC1T07-rxLM9IGBamKCMI-8",
     authDomain: "finance-tracker-fac6e.firebaseapp.com",
     projectId: "finance-tracker-fac6e",

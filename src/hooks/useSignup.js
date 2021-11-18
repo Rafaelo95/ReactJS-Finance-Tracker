@@ -1,36 +1,41 @@
-import { useState } from "react"
-import { auth } from "../firebase/config"
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
+import { useState } from "react";
+import { auth } from "../firebase/config";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { AuthContext } from "../contexts/AuthContext";
 
 export const useSignup = () => {
-    let [error, setError] = useState(false)
-    let [isPending, setIsPending] = useState(false)
+  const [error, setError] = useState(false);
+  const [isPending, setIsPending] = useState(false);
+  const { dispatch } = AuthContext();
 
-    const signup = async (email, password, displayName) => {
-        setError(false)
-        setIsPending(true)
+  const signup = async (email, password, displayName) => {
+    setError(false);
+    setIsPending(true);
 
-        try {
-            
-            // refer to https://firebase.google.com/docs/auth/web/manage-users#create_a_user for reference on user creation
-            let response = await createUserWithEmailAndPassword(auth, email, password)
-            
-            console.log(response.user)
+    try {
+      // refer to https://firebase.google.com/docs/auth/web/manage-users#create_a_user for reference on user creation
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-            if (!response) {
-                throw new Error('Could not sign up')
-            }
+      console.log(response.user);
 
-            // refer to https://firebase.google.com/docs/auth/web/manage-users#web-version-9_4 for reference on updateProfile
-            await updateProfile(response.user, { displayName: displayName })
+      if (!response) {
+        throw new Error("Could not sign up");
+      }
 
-            setIsPending(false)
-        } catch (err) {
-            console.log(err)
-            setError(err.message)
-            setIsPending(false)
-        }
+      // refer to https://firebase.google.com/docs/auth/web/manage-users#web-version-9_4 for reference on updateProfile
+      await updateProfile(response.user, { displayName: displayName });
+
+      setIsPending(false);
+    } catch (err) {
+      console.log(err);
+      setError(err.message);
+      setIsPending(false);
     }
+  };
 
-    return { error, isPending, signup }
-}
+  return { error, isPending, signup };
+};
