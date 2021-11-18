@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { auth } from "../firebase/config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { AuthContext } from "../contexts/AuthContext";
@@ -6,7 +6,7 @@ import { AuthContext } from "../contexts/AuthContext";
 export const useSignup = () => {
   const [error, setError] = useState(false);
   const [isPending, setIsPending] = useState(false);
-  const { dispatch } = AuthContext();
+  const { dispatch } = useContext(AuthContext);
 
   const signup = async (email, password, displayName) => {
     setError(false);
@@ -28,6 +28,8 @@ export const useSignup = () => {
 
       // refer to https://firebase.google.com/docs/auth/web/manage-users#web-version-9_4 for reference on updateProfile
       await updateProfile(response.user, { displayName: displayName });
+
+      dispatch({type: "login", payload: response.user})
 
       setIsPending(false);
     } catch (err) {

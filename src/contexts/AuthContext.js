@@ -4,6 +4,10 @@ import { useReducer, createContext } from "react";
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  let currentUser = {
+    user: null,
+  };
+  
   const authReducer = (state, action) => {
     switch (action.type) {
       case "login":
@@ -11,10 +15,6 @@ export const AuthContextProvider = ({ children }) => {
       default:
         return state;
     }
-  };
-
-  let currentUser = {
-    user: null,
   };
 
   const [state, dispatch] = useReducer(authReducer, currentUser);
