@@ -20,9 +20,15 @@
     letter-spacing: 2px;
 }
 
-.navbar a {
+.navbar a,
+.welcome-msg {
     text-decoration: none;
     color: white;
+}
+
+.welcome-msg {
+    margin: 0;
+    font-size: 1.2em;
 }
 
 .navbar li {

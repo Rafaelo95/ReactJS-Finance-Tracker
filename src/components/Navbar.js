@@ -30,6 +30,7 @@ export default function Navbar() {
 
         {user && (
           <>
+            <p className="welcome-msg">{`Welcome ${user.displayName}!`}</p>
             <li>
               <button className="logout-btn" onClick={logout}>
                 Logout
