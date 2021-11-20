@@ -1,7 +1,10 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { auth } from "../firebase/config";
 import { AuthContext } from "../contexts/AuthContext";
 import { signInWithEmailAndPassword } from "@firebase/auth";
+
+const simulateSlowNetworkRequest = () =>
+  new Promise(resolve => setTimeout(resolve, 2500));
 
 export const useLogin = () => {
   const [error, setError] = useState(false);
@@ -32,6 +35,10 @@ export const useLogin = () => {
       setIsPending(false);
     }
   };
+
+  useEffect(() => {
+    return () => {}
+  }, [])
 
   return { error, isPending, login };
 };
