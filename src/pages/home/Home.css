@@ -84,10 +84,10 @@
   position: absolute;
   top: 0;
   right:0;
-  background: white;
+  background: rgb(214, 214, 214);
   color: gray;
   border: none;
-  padding: 12px 8px;
+  padding: 12px;
   text-align: center;
   line-height: 0;
   font-size: 0.9em;

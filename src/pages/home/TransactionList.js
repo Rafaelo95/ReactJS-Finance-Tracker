@@ -7,6 +7,7 @@ export function TransactionList({ transactions }) {
         <li key={transaction.id}>
           <p className="name">{transaction.name}</p>
           <p className="amount">${transaction.amount}</p>
+          <button>X</button>
         </li>
       ))}
     </ul>
