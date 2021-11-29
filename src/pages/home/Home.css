@@ -93,3 +93,8 @@
   font-size: 0.9em;
   cursor: pointer;
 }
+
+.transactions button:hover {
+  background: rgb(119, 119, 119);
+  color: white;
+}
