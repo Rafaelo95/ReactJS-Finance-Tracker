@@ -3,8 +3,8 @@ import { auth } from "../firebase/config";
 import { AuthContext } from "../contexts/AuthContext";
 import { signInWithEmailAndPassword } from "@firebase/auth";
 
-const simulateSlowNetworkRequest = () =>
-  new Promise(resolve => setTimeout(resolve, 2500));
+// const simulateSlowNetworkRequest = () =>
+//   new Promise(resolve => setTimeout(resolve, 2500));
 
 export const useLogin = () => {
   const [error, setError] = useState(false);
