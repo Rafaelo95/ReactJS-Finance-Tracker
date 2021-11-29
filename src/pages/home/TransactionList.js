@@ -7,7 +7,8 @@ export function TransactionList({ transactions }) {
         <li key={transaction.id}>
           <p className="name">{transaction.name}</p>
           <p className="amount">${transaction.amount}</p>
-          <button>X</button>
+          <button className="delete"><i class="fas fa-trash-alt"></i></button>
+          <button className="update"><i class="fas fa-pen"></i></button>
         </li>
       ))}
     </ul>
