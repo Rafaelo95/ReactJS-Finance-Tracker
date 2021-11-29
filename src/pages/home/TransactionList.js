@@ -1,6 +1,6 @@
 import "./Home.css";
 
-export default function TransactionList({ transactions }) {
+export function TransactionList({ transactions }) {
   return (
     <ul className="transactions">
       {transactions.map((transaction) => (
