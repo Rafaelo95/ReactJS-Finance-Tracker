@@ -20,4 +20,7 @@ const auth = firebase.auth();
 // console.log(Object.getOwnPropertyNames(auth))
 // console.log(auth.app)
 
-export { db, auth };
+// timestamp
+const timestamp = firebase.firestore.Timestamp
+
+export { db, auth, timestamp };
