@@ -62,6 +62,9 @@ export const useFirestore = (collection) => {
   }
 
   // modify a document 
+  const updateDocument = async (id) => {
+    
+  }
   // TODO
 
   useEffect(() => {
