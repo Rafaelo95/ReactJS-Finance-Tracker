@@ -1,9 +1,12 @@
 import "./Home.css";
 
 import { useFirestore } from "../../hooks/useFirebase";
+import { useState } from "react";
 
 export function TransactionList({ transactions }) {
   const { deleteDocument, updateDocument } = useFirestore("transactions");
+
+
   return (
     <ul className="transactions">
       {transactions.map((transaction) => (
@@ -11,10 +14,10 @@ export function TransactionList({ transactions }) {
           <p className="name">{transaction.name}</p>
           <p className="amount">${transaction.amount}</p>
           <button className="delete" onClick={()=> deleteDocument(transaction.id)}>
-            <i class="fas fa-trash-alt"></i>
+            <i className="fas fa-trash-alt"></i>
           </button>
-          <button className="update" onClick={() => updateDocument(transaction.id)}>
-            <i class="fas fa-pen"></i>
+          <button className="update">
+            <i className="fas fa-pen"></i>
           </button>
         </li>
       ))}
