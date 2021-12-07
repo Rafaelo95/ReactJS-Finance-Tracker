@@ -1,12 +1,18 @@
 import "./Update.css";
 
-export default function Update() {
+function Update() {
+  console.log(window.location.href);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  
   return (
     <>
       <h4 className="updateTransaction">Update your transaction</h4>
 
       <div className="divForm">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div>
             <label>Enter new name</label>
             <input type="text"></input>
@@ -25,3 +31,5 @@ export default function Update() {
     </>
   );
 }
+
+export default Update;
