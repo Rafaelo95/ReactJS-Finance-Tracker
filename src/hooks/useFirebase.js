@@ -1,7 +1,8 @@
 import { useReducer, useEffect, useState } from "react";
-import { db } from "../firebase/config";
+import { db, timestamp } from "../firebase/config";
 
 let initialState = {
+  document: null,
   isPending: false,
   error: null,
   success: null,
@@ -10,15 +11,13 @@ let initialState = {
 const firestoreReducer = (state, action) => {
   switch (action.type) {
     case "IS_PENDING":
-      return { success: false, isPending: true, error: null };
+      return { success: false, isPending: true, error: null, document: null };
     case "ERROR":
-      return { success: false, isPending: false, error: action.payload };
-    case "ERROR_UPDATING":
-      return { success: false, isPending: false, error: action.payload };
+      return { success: false, isPending: false, error: action.payload, document: null };
     case "DELETED_DOCUMENT":
-      return { isPending: false, document: null, success: true, error: null };
+      return { isPending: false, success: true, error: null, document: null };
     case "ADDED_DOCUMENT":
-      return { success: true, isPending: false, error: null };
+      return { success: true, isPending: false, error: null, document: action.payload };
     default:
       return state;
   }
@@ -43,6 +42,7 @@ export const useFirestore = (collection) => {
     dispatch({ type: "IS_PENDING" });
 
     try {
+      const createdAt = timestamp.fromDate(new Date())
       const addedDocument = await ref.add({ ...doc });
       dispatchIfNotCancelled({
         type: "ADDED_DOCUMENT",
@@ -66,26 +66,26 @@ export const useFirestore = (collection) => {
   };
 
   // modify a document
-  const updateDocument = async (id) => {
-    dispatch({ type: "IS_PENDING" });
+  // const updateDocument = async (id) => {
+  //   dispatch({ type: "IS_PENDING" });
 
-    try {
-      await ref.doc(id).update({
-        amount: 0,
-        name: "nothing",
-      });
-    } catch (err) {
-      dispatchIfNotCancelled({
-        type: "ERROR_UPDATING",
-        payload: "could not update",
-      });
-    }
-  };
+  //   try {
+  //     await ref.doc(id).update({
+  //       amount: 0,
+  //       name: "nothing",
+  //     });
+  //   } catch (err) {
+  //     dispatchIfNotCancelled({
+  //       type: "ERROR_UPDATING",
+  //       payload: "could not update",
+  //     });
+  //   }
+  // };
   // TODO
 
   useEffect(() => {
     return () => setIsCancelled(true);
   }, []);
 
-  return { addDocument, deleteDocument, updateDocument, response };
+  return { addDocument, deleteDocument, response };
 };
