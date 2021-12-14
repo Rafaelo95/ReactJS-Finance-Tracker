@@ -8,7 +8,7 @@ export function TransactionList({ transactions }) {
   const { deleteDocument, updateDocument } = useFirestore("transactions");
 
   const handleUpdateClick = () => {
-    return <h1>Yes</h1>;
+    return <h1>Test</h1>;
   };
 
   return (
