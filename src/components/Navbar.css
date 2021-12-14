@@ -1,67 +1,68 @@
 .navbar {
-    background-color: rgb(156, 156, 156);
-    box-sizing: border-box;
+    background: rgb(103,103,103);
+    background: linear-gradient(90deg, rgba(103,103,103,1) 0%, rgba(135,135,135,1) 50%, rgba(219,219,219,1) 100%);
+  box-sizing: border-box;
 }
 
 .navbar-ul {
-    display: flex;
-    list-style: none;
-    margin: 0 auto;
-    padding: 20px 60px;
-    align-items: center;
-    max-width: 1000px;
+  display: flex;
+  list-style: none;
+  margin: 0 auto;
+  padding: 20px 60px;
+  align-items: center;
+  max-width: 1000px;
 }
 
 .nav-title {
-    margin-right: auto;
-    margin-left: 0;
-    font-weight: bold;
-    font-size: 1.4em;
-    letter-spacing: 2px;
+  margin-right: auto;
+  margin-left: 0;
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 2px;
 }
 
 .navbar a,
 .welcome-msg {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .welcome-msg {
-    margin: 0;
-    font-size: 1.2em;
+  margin: 0;
+  font-size: 1.2em;
 }
 
 .navbar li {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .navbar a::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: width 0.3s;
-    margin-top: 5px;
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s;
+  margin-top: 5px;
 }
 
 .navbar a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 .logout-btn {
-    background-color: rgb(133, 160, 90);
-    font-size: 1.3em;
-    height: 35px;
-    width: 115%;
-    border: 2px solid rgb(133, 160, 90);
-    border-radius: 6px;
-    margin: 0;
-    color: rgb(240, 240, 240);
+  background-color: rgb(133, 160, 90);
+  font-size: 1.3em;
+  height: 35px;
+  width: 115%;
+  border: 2px solid rgb(133, 160, 90);
+  border-radius: 6px;
+  margin: 0;
+  color: rgb(240, 240, 240);
 }
 
 .logout-btn:hover {
-    background-color: rgb(240, 240, 240);
-    color: rgb(133, 160, 90);
-    cursor: pointer;
+  background-color: rgb(240, 240, 240);
+  color: rgb(133, 160, 90);
+  cursor: pointer;
 }
