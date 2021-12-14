@@ -7,11 +7,14 @@ export function TransactionForm({ uid }) {
   const { addDocument, response } = useFirestore("transactions");
 
   const handleSubmit = (e) => {
+    const creationDate = new Date().toString();
+    console.log(creationDate)
     e.preventDefault();
     addDocument({
       uid,
       name,
       amount,
+      creationDate,
     });
   };
 

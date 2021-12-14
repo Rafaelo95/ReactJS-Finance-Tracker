@@ -1,15 +1,10 @@
 import "./Home.css";
 
 import { useFirestore } from "../../hooks/useFirebase";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export function TransactionList({ transactions }) {
-  const { deleteDocument, updateDocument } = useFirestore("transactions");
-
-  const handleUpdateClick = () => {
-    return <h1>Test</h1>;
-  };
+  const { deleteDocument } = useFirestore("transactions");
 
   return (
     <ul className="transactions">
@@ -17,12 +12,15 @@ export function TransactionList({ transactions }) {
         <li key={transaction.id}>
           <p className="name">{transaction.name}</p>
           <p className="amount">${transaction.amount}</p>
+          {/* <p className="date">Date: {(transaction.creationDate).toString()} </p> */}
+
           <button
             className="delete"
             onClick={() => deleteDocument(transaction.id)}
           >
             <i className="fas fa-trash-alt"></i>
           </button>
+
           <Link to={"update/" + transaction.id}>
             <button className="update">
               <i className="fas fa-pen"></i>
