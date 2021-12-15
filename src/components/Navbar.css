@@ -66,3 +66,16 @@
   color: rgb(133, 160, 90);
   cursor: pointer;
 }
+
+.update-profile {
+  display: flex;
+  font-size: 1.1em;
+}
+
+.update-profile:hover {
+  color: rgb(70, 70, 70);
+}
+
+.update-profile:hover::after {
+  content: none;
+}

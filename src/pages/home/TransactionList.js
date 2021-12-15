@@ -1,7 +1,6 @@
 import "./Home.css";
 
 import { useFirestore } from "../../hooks/useFirebase";
-import { Link } from "react-router-dom";
 
 export function TransactionList({ transactions }) {
   const { deleteDocument } = useFirestore("transactions");
@@ -20,12 +19,6 @@ export function TransactionList({ transactions }) {
           >
             <i className="fas fa-trash-alt"></i>
           </button>
-
-          <Link to={"update/" + transaction.id}>
-            <button className="update">
-              <i className="fas fa-pen"></i>
-            </button>
-          </Link>
         </li>
       ))}
     </ul>

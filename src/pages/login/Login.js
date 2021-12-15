@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useLogin } from "../../hooks/useLogin";
 
 // styles
 import "./Login.css";
 
 export default function Login() {
+  const emailRef = useRef()
+  const passwordRef = useRef()
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let { login, error, isPending } = useLogin();
@@ -18,10 +20,10 @@ export default function Login() {
     <form className="login-form" onSubmit={handleSubmit}>
       <h3 className="login-form-title">Login</h3>
       <label>Email:</label>
-      <input type="text" onChange={(e) => setEmail(e.target.value)} />
+      <input type="email" onChange={(e) => setEmail(e.target.value)}  ref={emailRef}/>
 
       <label>Password:</label>
-      <input type="password" onChange={(e) => setPassword(e.target.value)} />
+      <input type="password" onChange={(e) => setPassword(e.target.value)}   ref={passwordRef}/>
 
       {!isPending && <button>Log in</button>}
       {isPending && <button disabled>Loading...</button>}

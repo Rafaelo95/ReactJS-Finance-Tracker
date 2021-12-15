@@ -32,6 +32,9 @@ export default function Navbar() {
           <>
             <p className="welcome-msg">{`Welcome ${user.displayName}!`}</p>
             <li>
+                <Link to="/update-profile" className="update-profile">Update Profile</Link>
+            </li>
+            <li>
               <button className="logout-btn" onClick={logout}>
                 Logout
               </button>
