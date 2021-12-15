@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 
 // styles
@@ -15,6 +15,9 @@ export default function Signup() {
     signup(email, password, displayName);
   };
 
+  
+  // useEffect cleanup here!!! 
+  
   return (
     <form className="signup-form" onSubmit={handleSubmit}>
       <h3 className="signup-form-title">Sign Up</h3>
